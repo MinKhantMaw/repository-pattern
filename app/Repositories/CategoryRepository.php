@@ -11,7 +11,7 @@ class CategoryRepository implements CategoryRepositoryInterface
     public function allCategories()
     {
         // TODO: Implement allCategories() method.
-        return Category::latest()->paginate(5);
+        return Category::with('product')->latest()->paginate(5);
     }
 
     public function storeCategory($data)

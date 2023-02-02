@@ -11,5 +11,13 @@ class Category extends Model
 
     protected  $guarded = [];
 
-
+    /**
+     * Get the product that owns the Category
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function product()
+    {
+        return $this->hasOne(Product::class, 'category_id');
+    }
 }

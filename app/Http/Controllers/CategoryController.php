@@ -22,8 +22,8 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = $this->categoryRepository->allCategories();
-        return $categories;
-        return view('categories.index',['categories' => $categories]);
+        // return $categories;
+        return view('categories.index', ['categories' => $categories]);
     }
 
     /**
@@ -51,7 +51,7 @@ class CategoryController extends Controller
 
         $this->categoryRepository->storeCategory($data);
 
-        return redirect()->route('categories.index')->with('message', 'Category Created Successfully');
+        return redirect()->route('category.index')->with('message', 'Category Created Successfully');
     }
 
     /**
@@ -107,6 +107,6 @@ class CategoryController extends Controller
     {
         $this->categoryRepository->destroyCategory($id);
 
-        return redirect()->route('categories.index')->with('status', 'Category Delete Successfully');
+        return redirect()->route('category.index')->with('status', 'Category Delete Successfully');
     }
 }
